@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class UploadAttachment {
 
-    public static TestcaseResultFetcher testcaseResultFetcher;
+    public static TestcaseResultFetcher testcaseResultFetcher = new TestcaseResultFetcher();
 
     public void uploadAttachmets() throws IOException {
 
