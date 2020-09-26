@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class UploadAttachment {
@@ -15,11 +17,26 @@ public class UploadAttachment {
         Scanner sc = new Scanner(System.in);
         String testCycleKey = sc.next();
 
-        testcaseResultFetcher.getTestResult(testCycleKey);
+        Map<String, Integer> testCaseMap = testcaseResultFetcher.getTestResult(testCycleKey);
 
-        ExcelReader excelReader = new ExcelReader();
-        excelReader.readFromExcel();
+        if(testCaseMap.size() > 0){
+            ExcelReader excelReader = new ExcelReader();
+            excelReader.readFromExcel(testCaseMap);
+        }
+        else {
+            System.out.println("No testcase exists for the given test cycle.");
+        }
 
     }
+
+//    public Map<String, Integer> objectToMapOfTestCaseKey(Object response){
+//
+//        Map<String, Integer> testCaseMap = new HashMap<>();
+//
+////        for(int i = 0; i < ){
+////
+////        }
+//
+//    }
 
 }
